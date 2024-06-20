@@ -51,5 +51,42 @@ def signup():
     button.grid(row=2, columnspan=2)  
     root.mainloop()
 
-signup()
-login()
+
+def task_manager():
+    root = tk.Tk()
+    root.title("Management")
+    
+    task_window = tk.Toplevel
+    task_window.title("Task Manager")
+
+    task_listbox = tk.Listbox(task_window)
+    task_listbox.pack()
+
+    task_entry = tk.Entry
+    task_entry.pack()
+
+    root.mainloop()
+
+
+
+
+
+#def main():
+    #print("Hello")
+    #print("Enter 1 ii you want to SignUp")
+    #print("Enter 2 if you want to Login")
+
+    #number = input("Enter your desired Number: ")
+    #if(number == 1):
+    #    signup()
+
+    #elif(number == 2):
+    #    login()
+
+    #else:
+        #print("Please try again.")
+
+
+#main()
+
+task_manager()
