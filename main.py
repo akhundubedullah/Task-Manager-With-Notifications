@@ -53,9 +53,7 @@ def signup():
 
 
 def task_manager():
-    root = tk.Tk()
-    root.title("Management")
-    
+        
     task_window = tk.Toplevel
     task_window.title("Task Manager")
 
@@ -65,7 +63,14 @@ def task_manager():
     task_entry = tk.Entry
     task_entry.pack()
 
-    root.mainloop()
+    add_button = tk.Button(task_window, text="Add Task", command=lambda: add_task(task_listbox, task_entry))
+    add_button.pack()
+
+    delete_button = tk.button(task_window,text = "Add Task",command = lambda : )
+    delete_button.pack()
+
+    update_button = 
+    update_button.pack()
 
 
 
