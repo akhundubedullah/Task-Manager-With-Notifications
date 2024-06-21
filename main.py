@@ -66,11 +66,34 @@ def task_manager():
     add_button = tk.Button(task_window, text="Add Task", command=lambda: add_task(task_listbox, task_entry))
     add_button.pack()
 
-    delete_button = tk.button(task_window,text = "Add Task",command = lambda : )
+    delete_button = tk.button(task_window,text = "Add Task",command = lambda :delete_task(task_listbox))
     delete_button.pack()
 
-    update_button = 
+    update_button = tk.Button(task_window,text = "Update Task",command = lambda :update_task(task_listbox,task_entry))
     update_button.pack()
+
+
+
+def add_task():
+
+    task = task_entry.get()
+    if task:
+        task.append(task)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,5 +116,3 @@ def task_manager():
 
 
 #main()
-
-task_manager()
