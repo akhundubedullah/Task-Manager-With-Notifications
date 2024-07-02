@@ -9,12 +9,23 @@ def check():
     username = e1.get()
     password = e2.get()
     if username in credentials and credentials[username] == password:
-        print(f"Login successful for {username}")
+        greet_window = tk.Toplevel()
+        greet_window.title("Welcome")
+
+        greet_label = tk.Label(greet_window, text=f"Hi {username}!")
+        greet_label.pack()
+
+        task_manager_button = tk.Button(greet_window, text="Task Manager", command=task_manager)
+        task_manager_button.pack()
+
+        greet_window.protocol("WM_DELETE_WINDOW", greet_window.destroy)
+
     else:
-        print("Login failed. Invalid username or password.")
+        messagebox.showerror("Login Failed", "Invalid username or password.")
+
 
 def login():
-    global e1, e2  # make e1 and e2 global so they can be accessed in check()
+    global e1, e2  
     root = tk.Tk()
     root.title("Login Page")
 
@@ -22,7 +33,7 @@ def login():
     tk.Label(root, text='Password').grid(row=1)
 
     e1 = tk.Entry(root)
-    e2 = tk.Entry(root, show='*')  # show='*' hides the password
+    e2 = tk.Entry(root, show='*')  
     e1.grid(row=0, column=1, sticky=tk.W)
     e2.grid(row=1, column=1, sticky=tk.W)
 
@@ -45,7 +56,7 @@ def signup():
     tk.Label(root, text='Password').grid(row=1)
 
     e1 = tk.Entry(root)
-    e2 = tk.Entry(root, show='*')  # show='*' hides the password
+    e2 = tk.Entry(root, show='*')  
     e1.grid(row=0, column=1, sticky=tk.W)
     e2.grid(row=1, column=1, sticky=tk.W)
     
@@ -119,11 +130,10 @@ def main():
     signup_button = tk.Button(root, text="Signup", command=signup)
     signup_button.pack()
 
-    task_manager_button = tk.Button(root, text="Task Manager", command=task_manager)
-    task_manager_button.pack()
-
-    if __name__ == "__main__":
-        main()
 
     root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
 
