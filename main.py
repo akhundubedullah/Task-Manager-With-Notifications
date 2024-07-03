@@ -142,10 +142,21 @@ def main():
     signup_button = tk.Button(root, text="Signup", command=signup)
     signup_button.pack()
 
+    def test_notification():
+        send_notification("Test Notification", "This is a test notification.")
+        messagebox.showinfo("Notification", "Test notification sent successfully.")
+
+    test_button = tk.Button(root, text="Test Notification", command=test_notification)
+    test_button.pack()
+
+ 
 
     root.mainloop()
 
 
 if __name__ == "__main__":
-    main()
+   
+   main()
+
+
 
