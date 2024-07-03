@@ -2,6 +2,8 @@ from asyncio import Task
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
+from plyer import notification
+
 
 credentials = {}
 
@@ -28,6 +30,7 @@ def login():
     global e1, e2  
     root = tk.Tk()
     root.title("Login Page")
+    root.geometry("300x150")
 
     tk.Label(root, text='Username').grid(row=0)
     tk.Label(root, text='Password').grid(row=1)
@@ -51,6 +54,7 @@ def signup():
 
     root = tk.Tk()
     root.title("Signup Page")
+    root.geometry("300x150")
 
     tk.Label(root, text='Username').grid(row=0)
     tk.Label(root, text='Password').grid(row=1)
@@ -91,6 +95,7 @@ def task_manager():
         if task:
             task_listbox.insert(tk.END, task)
             task_entry.delete(0, tk.END)
+            send_notification("Task Added", f"Task {task} has been added.)
         else:
             messagebox.showwarning("Input Error", "Please enter a task.")
 
@@ -100,6 +105,7 @@ def task_manager():
         try:
             task_index = task_listbox.curselection()
             task_listbox.delete(task_index)
+            send_notification("Task Deleted", "Task has been deleted.")
         except:
             messagebox.showwarning("Selection Error", "Please select a task to delete.")
 
@@ -112,6 +118,7 @@ def task_manager():
                     task_listbox.delete(selected_index)
                     task_listbox.insert(selected_index, updated_task)
                     task_entry.delete(0, tk.END)
+                    send_notification("Task Updated", "Task has been updated.")
                 else:
                     messagebox.showwarning("Input Error", "Please enter an updated task.")
             else:
@@ -119,11 +126,17 @@ def task_manager():
         except:
             messagebox.showwarning("Error", "An error occurred while updating the task.")
 
+def send_notification(title,message):
+    notification.notify(
+        title = title,
+        app_name = "Task Manager",
+        timeoout = 10,
+    )
 
 def main():
     root = tk.Tk()
     root.title("Task Manager")
-
+    root.geometry("300x300")
     login_button = tk.Button(root, text="Login", command=login)
     login_button.pack()
 
