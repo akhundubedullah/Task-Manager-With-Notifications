@@ -11,7 +11,7 @@ def send_notification(title,message):
     notification.notify(
         title = title,
         app_name = "Task Manager",
-        timeoout = 10,
+        timeout = 10,
     )
 
 def check():
@@ -102,11 +102,9 @@ def task_manager():
         if task:
             task_listbox.insert(tk.END, task)
             task_entry.delete(0, tk.END)
-            send_notification("Task Added", f"Task {task} has been added.)
+            send_notification("Task Added", f"Task {task} has been added.")
         else:
             messagebox.showwarning("Input Error", "Please enter a task.")
-
-
 
     def delete_task(task_listbox):
         try:
