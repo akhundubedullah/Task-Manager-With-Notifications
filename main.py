@@ -7,6 +7,13 @@ from plyer import notification
 
 credentials = {}
 
+def send_notification(title,message):
+    notification.notify(
+        title = title,
+        app_name = "Task Manager",
+        timeoout = 10,
+    )
+
 def check():
     username = e1.get()
     password = e2.get()
@@ -126,12 +133,6 @@ def task_manager():
         except:
             messagebox.showwarning("Error", "An error occurred while updating the task.")
 
-def send_notification(title,message):
-    notification.notify(
-        title = title,
-        app_name = "Task Manager",
-        timeoout = 10,
-    )
 
 def main():
     root = tk.Tk()
